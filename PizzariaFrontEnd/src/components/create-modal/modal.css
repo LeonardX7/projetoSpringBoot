@@ -64,6 +64,11 @@
     transform: scale(1);
 }   
 
+.btn-close {
+    background-color: red;
+    scale: 1;
+}  
+
 .titulo {
     color:#000000;
 }

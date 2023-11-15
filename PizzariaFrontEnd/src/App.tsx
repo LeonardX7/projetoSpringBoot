@@ -24,7 +24,7 @@ function App() {
         )}
       </div>
       {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
-      <button onClick={handleOpenModal}>Cadastro</button>
+      <button className="btn-adicionar" onClick={handleOpenModal}>Cadastro</button>
     </div>
   )
 }

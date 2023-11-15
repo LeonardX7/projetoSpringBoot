@@ -12,7 +12,7 @@ interface InputProps {
 }
 
 interface ModalProps {
-    closeModal(): void  
+    closeModal(): void
 }
 
 const Input = ({ label, value, updateValue, number }: InputProps) => {
@@ -61,11 +61,12 @@ export function CreateModal({ closeModal }: ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
+                <button onClick={closeModal} className="btn-close">x</button>
                 <h2 className="titulo">Cadastrar uma nova Pizza</h2>
                 <form className="input-container">
-                    <Input label="nome" value={nome} updateValue={setNome}></Input>
-                    <Input label="preco" value={preco} updateValue={setPreco} number></Input>
-                    <Input label="imagem" value={imagem} updateValue={setImagem}></Input>
+                    <Input label="Nome" value={nome} updateValue={setNome}></Input>
+                    <Input label="Preço" value={preco} updateValue={setPreco} number></Input>
+                    <Input label="URL Imagem" value={imagem} updateValue={setImagem}></Input>
                 </form>
                 <button onClick={enviar} className="btn-secondary">Enviar</button>
             </div>
