@@ -1,0 +1,19 @@
+CREATE DATABASE pizzaria
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE IF NOT EXISTS public.pizza
+(
+    idpizza bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    nome character varying(255) COLLATE pg_catalog."default",
+    imagem character varying(255) COLLATE pg_catalog."default",
+    preco integer,
+    CONSTRAINT pizza_pkey PRIMARY KEY (idpizza)
+)
