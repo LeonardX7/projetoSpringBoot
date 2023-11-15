@@ -7,21 +7,35 @@ import "./modal.css";
 interface InputProps {
     label: string,
     value: string | number,
-    updateValue(value: any): void
+    updateValue(value: any): void,
+    number?: boolean
 }
 
 interface ModalProps {
     closeModal(): void  
 }
 
-const Input = ({ label, value, updateValue }: InputProps) => {
+const Input = ({ label, value, updateValue, number }: InputProps) => {
     return (
         <>
             <label>{label}</label>
-            <input value={value} onChange={event => updateValue(event.target.value)}></input>
+            {number ? (
+                <input
+                    type="number"
+                    value={value}
+                    onChange={event => updateValue(event.target.value)}
+                />
+            ) : (
+                <input
+                    value={value}
+                    onChange={event => updateValue(event.target.value)}
+                />
+            )}
         </>
-    )
-}
+    );
+};
+
+
 
 
 export function CreateModal({ closeModal }: ModalProps) {
@@ -47,10 +61,10 @@ export function CreateModal({ closeModal }: ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <h2>Cadastra uma nova Pizza</h2>
+                <h2 className="titulo">Cadastrar uma nova Pizza</h2>
                 <form className="input-container">
                     <Input label="nome" value={nome} updateValue={setNome}></Input>
-                    <Input label="preco" value={preco} updateValue={setPreco}></Input>
+                    <Input label="preco" value={preco} updateValue={setPreco} number></Input>
                     <Input label="imagem" value={imagem} updateValue={setImagem}></Input>
                 </form>
                 <button onClick={enviar} className="btn-secondary">Enviar</button>
